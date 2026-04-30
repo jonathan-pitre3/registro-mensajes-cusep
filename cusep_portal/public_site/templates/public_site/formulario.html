@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Solicitar Servicios | CUSEP{% endblock %}
+{% block content %}
+<div class="container"><div class="card p-4"><h1>Solicitar Servicios</h1><div id="progressText">Paso 1 de 4</div><div class="progress mb-3"><div id="progressBar" class="progress-bar" style="width:25%"></div></div>
+<form method="post" novalidate>{% csrf_token %}
+{% for field in form %}<div class="mb-2">{{ field.errors }}{{ field }}</div>{% endfor %}
+<div class="step" data-step="1"></div><div class="step d-none" data-step="2"></div><div class="step d-none" data-step="3"></div><div class="step d-none" data-step="4"></div><div class="step d-none" data-step="5"><p>¡Gracias! Hemos recibido su solicitud. El personal del CUSEP se comunicará con usted en los próximos días para orientarle y completar el proceso. Los servicios del CUSEP son libres de costo.</p></div>
+<div class="d-flex gap-2"><button type="button" id="backBtn" class="btn btn-outline-secondary d-none">Atrás</button><button type="button" id="nextBtn" class="btn btn-primary">Siguiente</button><button type="submit" id="submitBtn" class="btn btn-accent d-none">Enviar solicitud</button></div>
+</form></div></div>
+{% endblock %}
+{% block scripts %}
+<script>
+const steps = [1,2,3,4,5]; let current = 1;
+const progressText=document.getElementById('progressText'); const progressBar=document.getElementById('progressBar');
+function render(){document.querySelectorAll('.step').forEach(s=>s.classList.add('d-none'));document.querySelector(`.step[data-step="${current}"]`).classList.remove('d-none');
+document.getElementById('backBtn').classList.toggle('d-none',current===1);document.getElementById('nextBtn').classList.toggle('d-none',current>=5);document.getElementById('submitBtn').classList.toggle('d-none',current!==5);
+progressText.textContent = current<=4?`Paso ${current} de 4`:'Confirmación';progressBar.style.width=`${Math.min(current,4)*25}%`;}
+document.getElementById('nextBtn').addEventListener('click',()=>{if(current<5)current++;render();});
+document.getElementById('backBtn').addEventListener('click',()=>{if(current>1)current--;render();});render();
+</script>
+{% endblock %}
