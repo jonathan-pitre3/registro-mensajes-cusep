@@ -1,3 +1,123 @@
 {% extends 'base.html' %}
-{% block title %}Inicio | CUSEP{% endblock %}
-{% block content %}<div class="container"><section class="hero card p-5 mb-4"><h1>Servicios psicológicos profesionales, accesibles y confidenciales</h1><p>El CUSEP ofrece atención psicológica a la comunidad universitaria y general de Puerto Rico</p><a class="btn btn-accent" href="/solicitar/">Solicitar Servicios</a></section><div class="row g-3 mb-4"><div class="col-md-4"><div class="card p-3"><h5>Libres de Costo</h5><p>Todos nuestros servicios son completamente gratuitos</p></div></div><div class="col-md-4"><div class="card p-3"><h5>Profesionales en Formación</h5><p>Atendido por estudiantes doctorales bajo supervisión de psicólogos licenciados</p></div></div><div class="col-md-4"><div class="card p-3"><h5>Confidencial</h5><p>Su información está protegida bajo las normas de confidencialidad profesional y la Ley 408 de Salud Mental de Puerto Rico</p></div></div></div><section class="notice p-3">Lista de espera: Existe una lista de espera activa. Le tomaremos su solicitud pero es posible que deba esperar antes de recibir el servicio. No podemos garantizar una fecha específica de inicio.</section></div>{% endblock %}
+{% block title %}Inicio | CUSEP — Servicios Psicológicos Gratuitos en Puerto Rico{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <span class="badge badge-free mb-3">Servicios libres de costo</span>
+        <h1 class="hero-title">Servicios psicológicos profesionales,<br>accesibles y confidenciales</h1>
+        <p class="hero-subtitle">El CUSEP ofrece atención psicológica a la comunidad universitaria y general de Puerto Rico. Nuestros servicios son ofrecidos por estudiantes doctorales bajo la supervisión directa de psicólogos licenciados.</p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="{% url 'solicitar' %}" class="btn btn-accent btn-lg px-5">
+            <i class="bi bi-clipboard-plus me-2"></i>Solicitar Servicios
+          </a>
+          <a href="{% url 'servicios' %}" class="btn btn-outline-light btn-lg px-4">
+            Conocer más
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-5 d-none d-lg-block text-center">
+        <div class="hero-illustration">
+          <i class="bi bi-heart-pulse"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST NOTICE -->
+<div class="container my-4">
+  <div class="notice-banner d-flex align-items-start gap-3">
+    <i class="bi bi-info-circle-fill notice-icon mt-1"></i>
+    <div>
+      <strong>Lista de espera activa:</strong> Le tomaremos su solicitud pero es posible que deba esperar antes de recibir el servicio. Puede que reciba los servicios en una semana o el próximo semestre. No podemos garantizar una fecha específica de inicio.
+    </div>
+  </div>
+</div>
+
+<!-- FEATURE CARDS -->
+<section class="container my-5">
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="feature-card h-100">
+        <div class="feature-icon"><i class="bi bi-piggy-bank"></i></div>
+        <h5>Libres de Costo</h5>
+        <p class="text-muted mb-0">Todos nuestros servicios son completamente gratuitos para la comunidad.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature-card h-100">
+        <div class="feature-icon"><i class="bi bi-mortarboard"></i></div>
+        <h5>Supervisión Profesional</h5>
+        <p class="text-muted mb-0">Atendido por estudiantes doctorales bajo supervisión directa de psicólogos licenciados.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature-card h-100">
+        <div class="feature-icon"><i class="bi bi-shield-lock"></i></div>
+        <h5>Confidencial</h5>
+        <p class="text-muted mb-0">Su información está protegida bajo la Ley 408 de Salud Mental de Puerto Rico y las normas de confidencialidad profesional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES PREVIEW -->
+<section class="services-preview py-5">
+  <div class="container">
+    <h2 class="section-title text-center mb-5">¿Qué servicios ofrecemos?</h2>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="service-preview-card h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="service-icon"><i class="bi bi-chat-heart"></i></div>
+            <h4 class="mb-0">Psicoterapia</h4>
+          </div>
+          <p class="text-muted mb-3">Proceso terapéutico para atender dificultades emocionales, conductuales o de salud mental.</p>
+          <ul class="service-list">
+            <li><i class="bi bi-check-circle-fill"></i> Individual — adultos, adolescentes y niños</li>
+            <li><i class="bi bi-check-circle-fill"></i> Terapia de juego</li>
+            <li><i class="bi bi-check-circle-fill"></i> Terapia de pareja</li>
+            <li><i class="bi bi-check-circle-fill"></i> Terapia de familia</li>
+            <li><i class="bi bi-check-circle-fill"></i> Terapia de grupo</li>
+            <li><i class="bi bi-check-circle-fill"></i> Intervención en crisis</li>
+          </ul>
+          <a href="{% url 'servicios' %}" class="btn btn-outline-primary mt-3">Ver más</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="service-preview-card h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="service-icon"><i class="bi bi-file-medical"></i></div>
+            <h4 class="mb-0">Evaluaciones Psicológicas</h4>
+          </div>
+          <p class="text-muted mb-3">Proceso estructurado de pruebas y entrevistas para evaluar el funcionamiento cognitivo, emocional y conductual.</p>
+          <ul class="service-list">
+            <li><i class="bi bi-check-circle-fill"></i> Evaluación psicológica / psicoeducativa / psicométrica</li>
+            <li><i class="bi bi-check-circle-fill"></i> Evaluación del neurodesarrollo (ej. autismo)</li>
+            <li><i class="bi bi-check-circle-fill"></i> Evaluación neuropsicológica</li>
+          </ul>
+          <p class="small text-muted mt-2"><i class="bi bi-exclamation-circle me-1"></i>No realizamos evaluaciones en inglés ni para admisión escolar.</p>
+          <a href="{% url 'servicios' %}" class="btn btn-outline-primary mt-3">Ver más</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section py-5 my-5">
+  <div class="container text-center">
+    <h2 class="mb-3">¿Listo para solicitar un servicio?</h2>
+    <p class="mb-4 text-muted">Complete nuestra solicitud en línea. El personal del CUSEP se comunicará con usted para orientarle sobre los próximos pasos.</p>
+    <a href="{% url 'solicitar' %}" class="btn btn-accent btn-lg px-5">
+      <i class="bi bi-clipboard-plus me-2"></i>Comenzar Solicitud
+    </a>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,1 +1,37 @@
-{% extends 'base.html' %}{% block title %}Solicitud Recibida | CUSEP{% endblock %}{% block content %}<div class="container"><div class="card p-5 text-center"><h1>¡Solicitud Recibida!</h1><p>Gracias por comunicarse con el CUSEP. Hemos recibido su solicitud de servicio. Un miembro de nuestro equipo se comunicará con usted en los próximos días para orientarle sobre los próximos pasos.</p><p>Recuerde que los servicios son libres de costo.</p><p>Si tiene alguna pregunta puede escribirnos a cusep.rp@upr.edu</p><p>Si usted se encuentra en una situación de crisis, llame al 988.</p><a class="btn btn-accent" href="/">Volver al inicio</a></div></div>{% endblock %}
+{% extends 'base.html' %}
+{% block title %}Solicitud Recibida | CUSEP{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 text-center">
+      <div class="success-card">
+        <div class="success-icon mb-4">
+          <i class="bi bi-check-circle-fill"></i>
+        </div>
+        <h1 class="mb-3">¡Solicitud Recibida!</h1>
+        <p class="lead mb-4">Gracias por comunicarse con el CUSEP. Hemos recibido su solicitud de servicio.</p>
+        <div class="next-steps mb-4">
+          <h6 class="mb-3">¿Qué sigue ahora?</h6>
+          <ol class="text-start">
+            <li class="mb-2">Un miembro de nuestro equipo revisará su solicitud.</li>
+            <li class="mb-2">El personal del CUSEP se comunicará con usted en los próximos días para orientarle y completar el proceso.</li>
+            <li class="mb-2">Esté atento a llamadas desde nuestro número de teléfono.</li>
+          </ol>
+        </div>
+        <div class="info-pills mb-4">
+          <span class="info-pill"><i class="bi bi-piggy-bank me-1"></i>Servicios libres de costo</span>
+          <span class="info-pill"><i class="bi bi-envelope me-1"></i>cusep.rp@upr.edu</span>
+        </div>
+        <div class="crisis-reminder mb-4">
+          <i class="bi bi-telephone me-2"></i>
+          Si se encuentra en una situación de crisis, llame al <strong>988</strong> ahora.
+        </div>
+        <a href="{% url 'home' %}" class="btn btn-accent px-5">
+          <i class="bi bi-house me-2"></i>Volver al inicio
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
