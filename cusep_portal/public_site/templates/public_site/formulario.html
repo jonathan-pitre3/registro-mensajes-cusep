@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-{% block title %}Solicitar Servicios | CUSEP{% endblock %}
+{% block title %}Registro de mensaje | CUSEP{% endblock %}
 
 {% block content %}
 <div class="container py-5">
@@ -12,10 +12,18 @@
 
         <!-- HEADER -->
         <div class="form-card-header">
-          <h1 class="form-title">Solicitud de Servicios</h1>
-          <p class="form-subtitle mb-0">Complete los siguientes pasos para enviar su solicitud. El personal del CUSEP se comunicará con usted para orientarle.</p>
+          <h1 class="form-title">Formulario para registro de mensaje</h1>
+          <p class="form-subtitle mb-0">Complete este registro inicial con su información de contacto. El personal del CUSEP se comunicará con usted para orientarle sobre servicios disponibles y próximos pasos.</p>
         </div>
 
+
+        <div class="notice-banner mx-4 mt-4 d-flex align-items-start gap-3">
+          <i class="bi bi-info-circle-fill notice-icon mt-1"></i>
+          <div>
+            <strong>Antes de completar el formulario:</strong> Al completar este formulario, su información será colocada en un registro de mensajes del CUSEP. Nuestro personal le contactará posteriormente para orientarle sobre los servicios disponibles y completar una solicitud de servicios, de ser pertinente. Debido al alto volumen de mensajes recibidos, no podemos garantizar cuándo recibirá los servicios. No obstante, estamos realizando todos los esfuerzos posibles para agilizar el proceso de contacto y orientación.
+            <span class="d-block mt-2">Si tiene dudas sobre el estatus de su mensaje o solicitud, puede comunicarse al <strong>787-764-0000, extensión 87680</strong>.</span>
+          </div>
+        </div>
         <!-- PROGRESS BAR -->
         <div class="form-progress px-4 pt-4">
           <div class="d-flex justify-content-between align-items-center mb-2">
@@ -63,8 +71,8 @@
             <!-- STEP 1: TIPO SERVICIO -->
             <!-- ===================== -->
             <div class="form-step active" id="step1">
-              <h3 class="step-heading mt-4">¿Qué tipo de servicio está solicitando?</h3>
-              <p class="text-muted mb-4">Seleccione una opción. Puede leer la descripción de cada servicio para ayudarle a decidir.</p>
+              <h3 class="step-heading mt-4">¿Sobre qué tipo de servicio desea orientación?</h3>
+              <p class="text-muted mb-4">Seleccione una opción para ayudarnos a orientar el contacto inicial. Esto no constituye una solicitud formal de servicios.</p>
 
               <div class="service-choice-grid">
                 <label class="service-choice-card" id="card-psicoterapia">
@@ -72,7 +80,7 @@
                     {% if form.tipo_servicio.value == 'psicoterapia' %}checked{% endif %}>
                   <div class="service-choice-icon"><i class="bi bi-chat-heart"></i></div>
                   <h5>Psicoterapia</h5>
-                  <p class="small text-muted mb-0">Proceso terapéutico en el que un/a psicólogo/a trabaja con una persona, pareja o familia para atender dificultades emocionales, conductuales o de salud mental. Las sesiones son conversacionales y se enfocan en el bienestar psicológico.</p>
+                  <p class="small text-muted mb-0">Espacio de acompañamiento psicológico para abordar dificultades emocionales, conductuales y relacionales desde un proceso terapéutico supervisado.</p>
                   <div class="choice-check"><i class="bi bi-check-circle-fill"></i></div>
                 </label>
 
@@ -216,7 +224,7 @@
             <!-- ======================== -->
             <div class="form-step d-none" id="step3">
               <h3 class="step-heading mt-4">¿Cuál es su relación con la persona que recibirá los servicios?</h3>
-              <p class="text-muted mb-4">Indique si está solicitando para usted mismo/a o para otra persona.</p>
+              <p class="text-muted mb-4">Indique si completa este registro para usted mismo/a o para otra persona.</p>
 
               <div class="radio-option-group">
                 <label class="radio-option" id="opt-rel-misma">
@@ -280,7 +288,7 @@
 
               <div class="mb-4">
                 <label class="form-label fw-semibold" for="id_nombre_receptor">
-                  Nombre completo de la persona que recibirá los servicios <span class="text-danger">*</span>
+                  Nombre completo de la persona interesada en recibir orientación o servicios <span class="text-danger">*</span>
                 </label>
                 <input type="text" class="form-control form-control-lg" id="id_nombre_receptor"
                   name="nombre_receptor" value="{{ form.nombre_receptor.value|default:'' }}"
@@ -290,7 +298,7 @@
 
               <div class="mb-4">
                 <label class="form-label fw-semibold" for="id_edad_receptor">
-                  Edad de la persona que recibirá los servicios <span class="text-danger">*</span>
+                  Edad de la persona interesada <span class="text-danger">*</span>
                 </label>
                 <input type="number" class="form-control form-control-lg" id="id_edad_receptor"
                   name="edad_receptor" value="{{ form.edad_receptor.value|default:'' }}"
@@ -305,7 +313,7 @@
                 <input type="tel" class="form-control form-control-lg" id="id_telefono"
                   name="telefono" value="{{ form.telefono.value|default:'' }}"
                   placeholder="787-000-0000">
-                <div class="form-text">Formato: 787-000-0000. El CUSEP le llamará desde este número.</div>
+                <div class="form-text">Formato: 787-000-0000. El personal del CUSEP usará este número para contactarle.</div>
                 <div class="field-error d-none" id="error-telefono">Ingrese un número válido (ej. 787-000-0000).</div>
               </div>
 
@@ -316,26 +324,26 @@
                 <input type="email" class="form-control form-control-lg" id="id_correo_electronico"
                   name="correo_electronico" value="{{ form.correo_electronico.value|default:'' }}"
                   placeholder="ejemplo@correo.com">
-                <div class="form-text">Se utilizará para enviarle documentos antes de su primera cita.</div>
+                <div class="form-text">Se utilizará para contactarle y compartir orientación o documentos, según corresponda.</div>
                 <div class="field-error d-none" id="error-correo_electronico">Ingrese un correo electrónico válido.</div>
               </div>
 
               <!-- CONDITIONAL: only shown if relacion != misma_persona -->
               <div class="mb-4" id="nombre_solicitante_group" style="display:none;">
                 <label class="form-label fw-semibold" for="id_nombre_solicitante">
-                  Su nombre completo (quien solicita el servicio) <span class="text-danger">*</span>
+                  Su nombre completo (si escribe por otra persona) <span class="text-danger">*</span>
                 </label>
                 <input type="text" class="form-control form-control-lg" id="id_nombre_solicitante"
                   name="nombre_solicitante" value="{{ form.nombre_solicitante.value|default:'' }}"
                   placeholder="Su nombre y apellido">
-                <div class="form-text">Ya que está solicitando para otra persona, indique su nombre.</div>
-                <div class="field-error d-none" id="error-nombre_solicitante">Este campo es requerido cuando solicita por otra persona.</div>
+                <div class="form-text">Ya que completa el registro por otra persona, indique su nombre.</div>
+                <div class="field-error d-none" id="error-nombre_solicitante">Este campo es requerido cuando completa el registro por otra persona.</div>
               </div>
 
               <!-- PRIVACY NOTICE -->
               <div class="privacy-notice mt-4">
-                <i class="bi bi-shield-lock me-2"></i>
-                <strong>Aviso de privacidad:</strong> La información que provea será manejada de forma confidencial por el personal del CUSEP, de acuerdo con la Ley 408 de Salud Mental de Puerto Rico y las normas éticas de la profesión de psicología.
+                <i class="bi bi-lock me-2"></i>
+                <strong>Aviso de privacidad:</strong> La información que provea será manejada por el personal del CUSEP conforme a las normas éticas de la profesión de psicología y las leyes aplicables.
               </div>
             </div>
 
@@ -349,7 +357,7 @@
                 Siguiente <i class="bi bi-arrow-right ms-1"></i>
               </button>
               <button type="submit" class="btn btn-accent btn-nav" id="submitBtn" style="display:none;">
-                <i class="bi bi-send me-2"></i>Enviar Solicitud
+                <i class="bi bi-send me-2"></i>Enviar información de contacto
               </button>
             </div>
 
@@ -532,7 +540,7 @@ function validateStep(step) {
 
     const relacionVal = relacion ? relacion.value : relacionConReceptor;
     if (relacionVal && relacionVal !== 'misma_persona' && !solicitante) {
-      showError('nombre_solicitante', 'Su nombre es requerido cuando solicita para otra persona.'); valid = false;
+      showError('nombre_solicitante', 'Su nombre es requerido cuando completa el registro por otra persona.'); valid = false;
     } else hideError('nombre_solicitante');
   }
 

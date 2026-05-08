@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Inicio | CUSEP — Servicios Psicológicos Gratuitos en Puerto Rico{% endblock %}
+{% block title %}Inicio | CUSEP — Registro de mensajes para servicios psicológicos accesibles{% endblock %}
 
 {% block content %}
 
@@ -8,12 +8,12 @@
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-lg-7">
-        <span class="badge badge-free mb-3">Servicios libres de costo</span>
-        <h1 class="hero-title">Servicios psicológicos profesionales,<br>accesibles y confidenciales</h1>
-        <p class="hero-subtitle">El CUSEP ofrece atención psicológica a la comunidad universitaria y general de Puerto Rico. Nuestros servicios son ofrecidos por estudiantes doctorales bajo la supervisión directa de psicólogos licenciados.</p>
+        <span class="badge badge-free mb-3">Servicios psicológicos accesibles</span>
+        <h1 class="hero-title">Portal para anotarse en el registro de mensajes del CUSEP</h1>
+        <p class="hero-subtitle">Comparta su información de contacto para que el CUSEP pueda comunicarse con usted, orientarle sobre los servicios disponibles y, de ser pertinente, completar una solicitud formal de servicios posteriormente.</p>
         <div class="d-flex gap-3 flex-wrap">
           <a href="{% url 'solicitar' %}" class="btn btn-accent btn-lg px-5">
-            <i class="bi bi-clipboard-plus me-2"></i>Solicitar Servicios
+            <i class="bi bi-clipboard-plus me-2"></i>Anotarme en el registro
           </a>
           <a href="{% url 'servicios' %}" class="btn btn-outline-light btn-lg px-4">
             Conocer más
@@ -22,45 +22,39 @@
       </div>
       <div class="col-lg-5 d-none d-lg-block text-center">
         <div class="hero-illustration">
-          <i class="bi bi-heart-pulse"></i>
+          <i class="bi bi-chat-left-heart"></i>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WAITLIST NOTICE -->
+<!-- REGISTRY NOTICE -->
 <div class="container my-4">
   <div class="notice-banner d-flex align-items-start gap-3">
     <i class="bi bi-info-circle-fill notice-icon mt-1"></i>
     <div>
-      <strong>Lista de espera activa:</strong> Le tomaremos su solicitud pero es posible que deba esperar antes de recibir el servicio. Puede que reciba los servicios en una semana o el próximo semestre. No podemos garantizar una fecha específica de inicio.
+      <strong>Registro de mensajes:</strong> Al completar este formulario, su información será colocada en un registro de mensajes del CUSEP. Nuestro personal le contactará posteriormente para orientarle sobre los servicios disponibles y completar una solicitud de servicios, de ser pertinente. Debido al alto volumen de mensajes recibidos, no podemos garantizar cuándo recibirá los servicios. No obstante, estamos realizando todos los esfuerzos posibles para agilizar el proceso de contacto y orientación.<br>
+      <span class="d-block mt-2">Si tiene dudas sobre el estatus de su mensaje o solicitud, puede comunicarse al <strong>787-764-0000, extensión 87680</strong>.</span>
     </div>
   </div>
 </div>
 
 <!-- FEATURE CARDS -->
 <section class="container my-5">
-  <div class="row g-4">
-    <div class="col-md-4">
+  <div class="row g-4 justify-content-center">
+    <div class="col-md-6 col-lg-4">
       <div class="feature-card h-100">
-        <div class="feature-icon"><i class="bi bi-piggy-bank"></i></div>
-        <h5>Libres de Costo</h5>
-        <p class="text-muted mb-0">Todos nuestros servicios son completamente gratuitos para la comunidad.</p>
+        <div class="feature-icon"><i class="bi bi-heart"></i></div>
+        <h5>Servicios accesibles</h5>
+        <p class="text-muted mb-0">El CUSEP ofrece servicios psicológicos accesibles para la comunidad puertorriqueña mediante un proceso de orientación y evaluación de elegibilidad.</p>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6 col-lg-4">
       <div class="feature-card h-100">
         <div class="feature-icon"><i class="bi bi-mortarboard"></i></div>
-        <h5>Supervisión Profesional</h5>
+        <h5>Supervisión profesional</h5>
         <p class="text-muted mb-0">Atendido por estudiantes doctorales bajo supervisión directa de psicólogos licenciados.</p>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="feature-card h-100">
-        <div class="feature-icon"><i class="bi bi-shield-lock"></i></div>
-        <h5>Confidencial</h5>
-        <p class="text-muted mb-0">Su información está protegida bajo la Ley 408 de Salud Mental de Puerto Rico y las normas de confidencialidad profesional.</p>
       </div>
     </div>
   </div>
@@ -69,7 +63,7 @@
 <!-- SERVICES PREVIEW -->
 <section class="services-preview py-5">
   <div class="container">
-    <h2 class="section-title text-center mb-5">¿Qué servicios ofrecemos?</h2>
+    <h2 class="section-title text-center mb-5">¿Qué servicios ofrece el CUSEP?</h2>
     <div class="row g-4">
       <div class="col-md-6">
         <div class="service-preview-card h-100">
@@ -77,7 +71,7 @@
             <div class="service-icon"><i class="bi bi-chat-heart"></i></div>
             <h4 class="mb-0">Psicoterapia</h4>
           </div>
-          <p class="text-muted mb-3">Proceso terapéutico para atender dificultades emocionales, conductuales o de salud mental.</p>
+          <p class="text-muted mb-3">Espacio de acompañamiento psicológico para abordar dificultades emocionales, conductuales y relacionales desde un proceso terapéutico supervisado.</p>
           <ul class="service-list">
             <li><i class="bi bi-check-circle-fill"></i> Individual — adultos, adolescentes y niños</li>
             <li><i class="bi bi-check-circle-fill"></i> Terapia de juego</li>
@@ -93,7 +87,7 @@
         <div class="service-preview-card h-100">
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="service-icon"><i class="bi bi-file-medical"></i></div>
-            <h4 class="mb-0">Evaluaciones Psicológicas</h4>
+            <h4 class="mb-0">Evaluaciones psicológicas</h4>
           </div>
           <p class="text-muted mb-3">Proceso estructurado de pruebas y entrevistas para evaluar el funcionamiento cognitivo, emocional y conductual.</p>
           <ul class="service-list">
@@ -101,7 +95,6 @@
             <li><i class="bi bi-check-circle-fill"></i> Evaluación del neurodesarrollo (ej. autismo)</li>
             <li><i class="bi bi-check-circle-fill"></i> Evaluación neuropsicológica</li>
           </ul>
-          <p class="small text-muted mt-2"><i class="bi bi-exclamation-circle me-1"></i>No realizamos evaluaciones en inglés ni para admisión escolar.</p>
           <a href="{% url 'servicios' %}" class="btn btn-outline-primary mt-3">Ver más</a>
         </div>
       </div>
@@ -109,13 +102,26 @@
   </div>
 </section>
 
+<!-- DONATION SECTION -->
+<section class="container my-5">
+  <div class="donation-card">
+    <div>
+      <div class="section-label">Donativo voluntario</div>
+      <h2 class="section-title">Apoye la misión del CUSEP</h2>
+      <p class="mb-2">Los servicios del CUSEP se ofrecen de manera accesible a la comunidad puertorriqueña. Las personas que deseen apoyar esta misión pueden realizar un donativo voluntario seleccionando la alternativa del Centro Universitario de Servicios y Estudios Psicológicos (CUSEP) en el formulario de donativos.</p>
+      <p class="mb-0 text-muted">Estas aportaciones ayudan a sufragar materiales, pruebas psicológicas, artículos de oficina y otros recursos necesarios para continuar ofreciendo servicios psicológicos accesibles.</p>
+    </div>
+    <a class="btn btn-accent" href="https://decepuprrp.jotform.com/230643879418870" target="_blank" rel="noopener noreferrer">Realizar un donativo al CUSEP</a>
+  </div>
+</section>
+
 <!-- CTA SECTION -->
 <section class="cta-section py-5 my-5">
   <div class="container text-center">
-    <h2 class="mb-3">¿Listo para solicitar un servicio?</h2>
-    <p class="mb-4 text-muted">Complete nuestra solicitud en línea. El personal del CUSEP se comunicará con usted para orientarle sobre los próximos pasos.</p>
+    <h2 class="mb-3">¿Desea que el CUSEP le contacte?</h2>
+    <p class="mb-4 text-muted">Complete el registro inicial con su información de contacto. El personal del CUSEP se comunicará con usted para orientarle sobre los próximos pasos.</p>
     <a href="{% url 'solicitar' %}" class="btn btn-accent btn-lg px-5">
-      <i class="bi bi-clipboard-plus me-2"></i>Comenzar Solicitud
+      <i class="bi bi-clipboard-plus me-2"></i>Completar registro inicial
     </a>
   </div>
 </section>

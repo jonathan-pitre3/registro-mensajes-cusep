@@ -1,35 +1,37 @@
 {% extends 'base.html' %}
-{% block title %}Solicitud Recibida | CUSEP{% endblock %}
+{% block title %}Información registrada | CUSEP{% endblock %}
 
 {% block content %}
 <div class="container py-5">
   <div class="row justify-content-center">
-    <div class="col-lg-6 text-center">
+    <div class="col-lg-8 text-center">
       <div class="success-card">
-        <div class="success-icon mb-4">
-          <i class="bi bi-check-circle-fill"></i>
-        </div>
-        <h1 class="mb-3">¡Solicitud Recibida!</h1>
-        <p class="lead mb-4">Gracias por comunicarse con el CUSEP. Hemos recibido su solicitud de servicio.</p>
+        <div class="success-icon mb-4"><i class="bi bi-check-circle-fill"></i></div>
+        <h1 class="mb-3">Información registrada</h1>
+        <p class="lead mb-4">Su información fue registrada correctamente. El CUSEP utilizará estos datos para contactarle, orientarle sobre los servicios disponibles y, de ser pertinente, completar una solicitud de servicios posteriormente.</p>
         <div class="next-steps mb-4">
           <h6 class="mb-3">¿Qué sigue ahora?</h6>
           <ol class="text-start">
-            <li class="mb-2">Un miembro de nuestro equipo revisará su solicitud.</li>
-            <li class="mb-2">El personal del CUSEP se comunicará con usted en los próximos días para orientarle y completar el proceso.</li>
-            <li class="mb-2">Esté atento a llamadas desde nuestro número de teléfono.</li>
+            <li class="mb-2">Su información fue colocada en el registro de mensajes del CUSEP.</li>
+            <li class="mb-2">Nuestro personal le contactará posteriormente para orientarle sobre los servicios disponibles y completar una solicitud de servicios, de ser pertinente.</li>
+            <li class="mb-2">Debido al alto volumen de mensajes recibidos, no podemos garantizar cuándo recibirá los servicios. No obstante, estamos realizando todos los esfuerzos posibles para agilizar el proceso de contacto y orientación.</li>
           </ol>
+          <p class="text-start mb-0"><strong>¿Dudas sobre el estatus de su mensaje o solicitud?</strong> Puede comunicarse al 787-764-0000, extensión 87680, o escribir a <a href="mailto:cusep.rp@upr.edu">cusep.rp@upr.edu</a>.</p>
+        </div>
+        <div class="donation-card text-start mb-4">
+          <div>
+            <h2 class="section-title h4">Donativo voluntario al CUSEP</h2>
+            <p class="mb-2">Aunque los servicios no tienen costo para quienes los reciben, las personas pueden realizar un donativo voluntario para ayudar a sostener la misión del CUSEP.</p>
+            <p class="mb-0 text-muted">Para realizar un donativo, acceda al enlace y seleccione la alternativa del Centro Universitario de Servicios y Estudios Psicológicos (CUSEP). Estas aportaciones ayudan a sufragar materiales, pruebas psicológicas, artículos de oficina y otros recursos necesarios para continuar ofreciendo servicios psicológicos accesibles.</p>
+          </div>
+          <a class="btn btn-accent" href="https://decepuprrp.jotform.com/230643879418870" target="_blank" rel="noopener noreferrer">Realizar un donativo al CUSEP</a>
         </div>
         <div class="info-pills mb-4">
-          <span class="info-pill"><i class="bi bi-piggy-bank me-1"></i>Servicios libres de costo</span>
+          <span class="info-pill"><i class="bi bi-telephone me-1"></i>787-764-0000, ext. 87680</span>
           <span class="info-pill"><i class="bi bi-envelope me-1"></i>cusep.rp@upr.edu</span>
         </div>
-        <div class="crisis-reminder mb-4">
-          <i class="bi bi-telephone me-2"></i>
-          Si se encuentra en una situación de crisis, llame al <strong>988</strong> ahora.
-        </div>
-        <a href="{% url 'home' %}" class="btn btn-accent px-5">
-          <i class="bi bi-house me-2"></i>Volver al inicio
-        </a>
+        <div class="crisis-reminder mb-4"><i class="bi bi-telephone me-2"></i>Si se encuentra en una situación de crisis, llame al <strong>988</strong> ahora.</div>
+        <a href="{% url 'home' %}" class="btn btn-accent px-5"><i class="bi bi-house me-2"></i>Volver al inicio</a>
       </div>
     </div>
   </div>
