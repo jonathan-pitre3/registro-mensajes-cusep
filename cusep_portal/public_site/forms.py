@@ -14,15 +14,15 @@ class SolicitudServicioForm(forms.ModelForm):
             'subtipo_psicoterapia': 'Subtipo de psicoterapia',
             'subtipo_evaluacion': 'Subtipo de evaluación',
             'tipo_evaluacion': 'Tipo de evaluación',
-            'nombre_receptor': 'Nombre de la persona que recibirá los servicios',
-            'edad_receptor': 'Edad de la persona que recibirá los servicios',
+            'nombre_receptor': 'Nombre de la persona interesada en recibir orientación o servicios',
+            'edad_receptor': 'Edad de la persona interesada',
             'telefono': 'Número de teléfono',
             'correo_electronico': 'Correo electrónico',
-            'relacion_con_receptor': 'Relación con la persona que recibirá los servicios',
-            'nombre_solicitante': 'Si no es usted quien recibirá los servicios, indique su nombre completo',
+            'relacion_con_receptor': 'Relación con la persona interesada',
+            'nombre_solicitante': 'Si completa el registro por otra persona, indique su nombre completo',
         }
         help_texts = {
-            'tipo_servicio': 'Seleccione el servicio principal que desea solicitar.',
+            'tipo_servicio': 'Seleccione el servicio principal sobre el que desea recibir orientación.',
             'subtipo_psicoterapia': 'Seleccione la población para psicoterapia.',
             'subtipo_evaluacion': 'Seleccione la población para evaluación.',
             'tipo_evaluacion': 'Seleccione el tipo de evaluación que necesita.',
@@ -31,7 +31,7 @@ class SolicitudServicioForm(forms.ModelForm):
             'telefono': 'Formato sugerido: 787-000-0000',
             'correo_electronico': 'Usaremos este correo para contactarle.',
             'relacion_con_receptor': 'Indique su relación con la persona que recibirá el servicio.',
-            'nombre_solicitante': 'Campo requerido cuando solicita por otra persona.',
+            'nombre_solicitante': 'Campo requerido cuando completa el registro por otra persona.',
         }
         widgets = {
             'tipo_servicio': forms.RadioSelect,
@@ -66,7 +66,7 @@ class SolicitudServicioForm(forms.ModelForm):
                 self.add_error('tipo_evaluacion', 'Debe seleccionar un tipo de evaluación.')
 
         if relacion != 'misma_persona' and not cleaned_data.get('nombre_solicitante'):
-            self.add_error('nombre_solicitante', 'Este campo es obligatorio cuando solicita por otra persona.')
+            self.add_error('nombre_solicitante', 'Este campo es obligatorio cuando completa el registro por otra persona.')
 
         if edad is not None and (edad < 1 or edad > 120):
             self.add_error('edad_receptor', 'La edad debe estar entre 1 y 120 años.')
