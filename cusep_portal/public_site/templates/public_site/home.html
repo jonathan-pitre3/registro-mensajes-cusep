@@ -9,8 +9,8 @@
     <div class="row align-items-center g-5">
       <div class="col-lg-7">
         <span class="badge badge-free mb-3">Servicios psicológicos accesibles</span>
-        <h1 class="hero-title">Portal para anotarse en el registro de mensajes del CUSEP</h1>
-        <p class="hero-subtitle">Comparta su información de contacto para que el CUSEP pueda comunicarse con usted, orientarle sobre los servicios disponibles y, de ser pertinente, completar una solicitud formal de servicios posteriormente.</p>
+        <h1 class="hero-title">Portal del registro de mensajes de CUSEP</h1>
+        <p class="hero-subtitle">Para solicitar servicios en el CUSEP, debe completar este formulario en línea con su información de contacto. Posteriormente, le contactaremos para orientarle y completar la solicitud de servicio.</p>
         <div class="d-flex gap-3 flex-wrap">
           <a href="{% url 'solicitar' %}" class="btn btn-accent btn-lg px-5">
             <i class="bi bi-clipboard-plus me-2"></i>Anotarme en el registro
@@ -71,7 +71,7 @@
             <div class="service-icon"><i class="bi bi-chat-heart"></i></div>
             <h4 class="mb-0">Psicoterapia</h4>
           </div>
-          <p class="text-muted mb-3">Espacio de acompañamiento psicológico para abordar dificultades emocionales, conductuales y relacionales desde un proceso terapéutico supervisado.</p>
+          <p class="text-muted mb-3">Espacio de acompañamiento psicológico para abordar dificultades emocionales, conductuales y relacionales.</p>
           <ul class="service-list">
             <li><i class="bi bi-check-circle-fill"></i> Individual — adultos, adolescentes y niños</li>
             <li><i class="bi bi-check-circle-fill"></i> Terapia de juego</li>
@@ -80,6 +80,7 @@
             <li><i class="bi bi-check-circle-fill"></i> Terapia de grupo</li>
             <li><i class="bi bi-check-circle-fill"></i> Intervención en crisis</li>
           </ul>
+          <p class="text-muted small mb-0">Los tipos de psicoterapia disponibles están sujetos a cupo, disponibilidad clínica y recursos del centro.</p>
           <a href="{% url 'servicios' %}" class="btn btn-outline-primary mt-3">Ver más</a>
         </div>
       </div>
@@ -118,7 +119,7 @@
 <!-- CTA SECTION -->
 <section class="cta-section py-5 my-5">
   <div class="container text-center">
-    <h2 class="mb-3">¿Desea que el CUSEP le contacte?</h2>
+    <h2 class="mb-3">¿Desea comenzar el proceso de solicitud de servicios?</h2>
     <p class="mb-4 text-muted">Complete el registro inicial con su información de contacto. El personal del CUSEP se comunicará con usted para orientarle sobre los próximos pasos.</p>
     <a href="{% url 'solicitar' %}" class="btn btn-accent btn-lg px-5">
       <i class="bi bi-clipboard-plus me-2"></i>Completar registro inicial
